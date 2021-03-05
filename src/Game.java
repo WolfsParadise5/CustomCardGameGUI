@@ -7,17 +7,22 @@ import java.util.Collections;
 
 class Game {
     
-    public static void main(String[] a) {
+    public static void mainCommandPrompt(String player1, String player2, String player3) {
         System.out.println("*******************");
         System.out.println("* 3-Player Phase  *");
         System.out.println("*******************");
         Scanner player = new Scanner(System.in);
-        System.out.print("Enter player 1 name: ");
-        String player1 = player.nextLine();
-        System.out.print("Enter player 2 name: ");
-        String player2 = player.nextLine();
-        System.out.print("Enter player 3 name: ");
-        String player3 = player.nextLine();
+        System.out.println("Player 1: " + player1);
+        System.out.println("Player 2: " + player2);
+        System.out.println("Player 3: " + player3);
+
+        try {
+            Thread.sleep((long)3000);
+        }
+
+        catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         System.out.println("");
         System.out.println("Available Cards : ");
