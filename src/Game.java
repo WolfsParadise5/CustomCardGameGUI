@@ -3,6 +3,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Queue;
 
 
 class Game {
@@ -28,22 +29,22 @@ class Game {
         System.out.println("Available Cards : ");
         
         Deck round1 = new Deck();
-        LinkedList<ArrayList<Card[]>> round1list = new LinkedList<ArrayList<Card[]>>();
+        Queue<ArrayList<Card[]>> round1list = new LinkedList<ArrayList<Card[]>>();
         round1list = round1.threePlayerDistribute();
         System.out.print(player1 + " : ");
-        ArrayList<Card[]> player1list = round1list.get(0);
+        ArrayList<Card[]> player1list = round1list.poll();
         Play player1Player = new Play(player1, player1list);
         System.out.print(player1Player.playerCardstoString());
         System.out.println();
 
         System.out.print(player2 + " : ");
-        ArrayList<Card[]> player2list = round1list.get(1);
+        ArrayList<Card[]> player2list = round1list.poll();
         Play player2Player = new Play(player2, player2list);
         System.out.print(player2Player.playerCardstoString());
         System.out.println();
 
         System.out.print(player3 + " : ");
-        ArrayList<Card[]> player3list = round1list.get(2);
+        ArrayList<Card[]> player3list = round1list.poll();
         Play player3Player = new Play(player3, player3list);
         System.out.print(player3Player.playerCardstoString());
         System.out.println();
@@ -59,23 +60,23 @@ class Game {
             round1 = new Deck();
             round1list = new LinkedList<ArrayList<Card[]>>();
             round1list = round1.threePlayerDistribute();
-            player1list = round1list.get(0);
+            player1list = round1list.poll();
             player1Player.playerCards = player1list;
             System.out.print(player1 + " : ");
             System.out.print(player1Player.playerCardstoString());
             System.out.println();
 
-            round1list = new LinkedList<ArrayList<Card[]>>();
-            round1list = round1.threePlayerDistribute();
-            player2list = round1list.get(1);
+            //round1list = new LinkedList<ArrayList<Card[]>>();
+            //round1list = round1.threePlayerDistribute();
+            player2list = round1list.poll();
             player2Player.playerCards = player2list;
             System.out.print(player2 + " : ");
             System.out.print(player2Player.playerCardstoString());
             System.out.println();
 
-            round1list = new LinkedList<ArrayList<Card[]>>();
-            round1list = round1.threePlayerDistribute();
-            player3list = round1list.get(2);
+            //round1list = new LinkedList<ArrayList<Card[]>>();
+            //round1list = round1.threePlayerDistribute();
+            player3list = round1list.poll();
             player3Player.playerCards = player3list;
             System.out.print(player3 + " : ");
             System.out.print(player3Player.playerCardstoString());
@@ -399,16 +400,16 @@ class Game {
         System.out.println("* 2-Player Phase  *");
         System.out.println("*******************");
         Scanner player = new Scanner(System.in);
-        LinkedList<ArrayList<Card[]>> round2list = new LinkedList<ArrayList<Card[]>>();
+        Queue<ArrayList<Card[]>> round2list = new LinkedList<ArrayList<Card[]>>();
         round2list = round2.twoPlayerDistribute();
         System.out.print(player1.playerName + " : ");
-        ArrayList<Card[]> player1list = round2list.get(0);
+        ArrayList<Card[]> player1list = round2list.poll();
         Play player1Player = new Play(player1.playerName, player1list);
         System.out.print(player1Player.playerCardstoString());
         System.out.println();
 
         System.out.print(player2.playerName + " : ");
-        ArrayList<Card[]> player2list = round2list.get(1);
+        ArrayList<Card[]> player2list = round2list.poll();
         Play player2Player = new Play(player2.playerName, player2list);
         System.out.print(player2Player.playerCardstoString());
         System.out.println();
@@ -425,7 +426,7 @@ class Game {
             round2 = new Deck();
             round2list = new LinkedList<ArrayList<Card[]>>();
             round2list = round2.twoPlayerDistribute();
-            player1list = round2list.get(0);
+            player1list = round2list.poll();
             player1Player.playerCards = player1list;
             System.out.print(player1.playerName + " : ");
             System.out.print(player1Player.playerCardstoString());
@@ -433,7 +434,7 @@ class Game {
 
             round2list = new LinkedList<ArrayList<Card[]>>();
             round2list = round2.twoPlayerDistribute();
-            player2list = round2list.get(1);
+            player2list = round2list.poll();
             player2Player.playerCards = player2list;
             System.out.print(player2.playerName + " : ");
             System.out.print(player2Player.playerCardstoString());

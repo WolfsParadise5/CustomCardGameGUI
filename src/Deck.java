@@ -1,6 +1,7 @@
 import java.util.LinkedList;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Queue;
 
 public class Deck{
     
@@ -27,10 +28,10 @@ public class Deck{
         Collections.sort(cards);
     }
 
-    public LinkedList<ArrayList<Card[]>> twoPlayerDistribute() {
+    public Queue<ArrayList<Card[]>> twoPlayerDistribute() {
         shuffle();
         
-        LinkedList<ArrayList<Card[]>> returnObject = new LinkedList<ArrayList<Card[]>>();
+        Queue<ArrayList<Card[]>> returnObject = new LinkedList<ArrayList<Card[]>>();
         ArrayList<Card[]> firstPlayer = new ArrayList<Card[]>();
         ArrayList<Card[]> secondPlayer = new ArrayList<Card[]>();
         Card[] tempOne = new Card[5];
@@ -72,7 +73,7 @@ public class Deck{
         
     }
 
-    public LinkedList<ArrayList<Card[]>> threePlayerDistribute() {
+    public Queue<ArrayList<Card[]>> threePlayerDistribute() {
         shuffle();
         
         ArrayList<Card[]> firstPlayer = new ArrayList<Card[]>();
@@ -126,7 +127,7 @@ public class Deck{
         }
 
         
-        LinkedList<ArrayList<Card[]>> distribution = new LinkedList<ArrayList<Card[]>>();
+        Queue<ArrayList<Card[]>> distribution = new LinkedList<ArrayList<Card[]>>();
         distribution.add(firstPlayer);
         distribution.add(secondPlayer);
         distribution.add(thirdPlayer);

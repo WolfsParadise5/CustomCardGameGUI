@@ -1,6 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class TestClass {
     
@@ -12,13 +13,13 @@ public class TestClass {
         d.sort();
         System.out.println(d.toString());
         //Testing three player distribution
-        LinkedList<ArrayList<Card[]>> distributeThree = d.threePlayerDistribute();
-        ArrayList<Card[]> test1 = distributeThree.get(0);
+        Queue<ArrayList<Card[]>> distributeThree = d.threePlayerDistribute();
+        ArrayList<Card[]> test1 = distributeThree.poll();
         Play player1 = new Play("Larry",test1);
         
         //Testing two player distribution
-        LinkedList<ArrayList<Card[]>> distributeTwo = d.twoPlayerDistribute();
-        ArrayList<Card[]> test = distributeTwo.get(0);
+        Queue<ArrayList<Card[]>> distributeTwo = d.twoPlayerDistribute();
+        ArrayList<Card[]> test = distributeTwo.poll();
         //Play player1 = new Play("Larry",test);
 
         //Insertion
