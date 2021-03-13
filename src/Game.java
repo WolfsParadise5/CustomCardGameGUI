@@ -152,27 +152,27 @@ class Game {
                 player1score += player1Player.getScore();
         }
 
-        else if(player2Player.getScore() > player1Player.getScore()){
+        if(player2Player.getScore() > player1Player.getScore()){
             if(player2Player.getScore() > player3Player.getScore())
                 player2score += player2Player.getScore();
         }
 
-        else if(player3Player.getScore() > player1Player.getScore()){
+        if(player3Player.getScore() > player1Player.getScore()){
             if(player3Player.getScore() > player2Player.getScore())
                 player3score += player3Player.getScore();
         }
 
-        else if(player1Player.getScore() == player2Player.getScore()){
+        if(player1Player.getScore() == player2Player.getScore()){
             player1score += player1Player.getScore();
             player2score += player2Player.getScore();
         }
 
-        else if(player2Player.getScore() == player3Player.getScore()){
+        if(player2Player.getScore() == player3Player.getScore()){
             player2score += player2Player.getScore();
             player3score += player3Player.getScore();
         }
 
-        else if(player1Player.getScore() == player3Player.getScore()){
+        if(player1Player.getScore() == player3Player.getScore()){
             player1score += player2Player.getScore();
             player3score += player3Player.getScore();
         }
@@ -262,27 +262,27 @@ class Game {
                 player1score += player1Player.getScore();
         }
 
-        else if(player2Player.getScore() > player1Player.getScore()){
+        if(player2Player.getScore() > player1Player.getScore()){
             if(player2Player.getScore() > player3Player.getScore())
                 player2score += player2Player.getScore();
         }
 
-        else if(player3Player.getScore() > player1Player.getScore()){
+        if(player3Player.getScore() > player1Player.getScore()){
             if(player3Player.getScore() > player2Player.getScore())
                 player3score += player3Player.getScore();
         }
 
-        else if(player1Player.getScore() == player2Player.getScore()){
+        if(player1Player.getScore() == player2Player.getScore()){
             player1score += player1Player.getScore();
             player2score += player2Player.getScore();
         }
 
-        else if(player2Player.getScore() == player3Player.getScore()){
+        if(player2Player.getScore() == player3Player.getScore()){
             player2score += player2Player.getScore();
             player3score += player3Player.getScore();
         }
 
-        else if(player1Player.getScore() == player3Player.getScore()){
+        if(player1Player.getScore() == player3Player.getScore()){
             player1score += player2Player.getScore();
             player3score += player3Player.getScore();
         }
@@ -371,27 +371,27 @@ class Game {
                 player1score += player1Player.getScore();
         }
 
-        else if(player2Player.getScore() > player1Player.getScore()){
+        if(player2Player.getScore() > player1Player.getScore()){
             if(player2Player.getScore() > player3Player.getScore())
                 player2score += player2Player.getScore();
         }
 
-        else if(player3Player.getScore() > player1Player.getScore()){
+        if(player3Player.getScore() > player1Player.getScore()){
             if(player3Player.getScore() > player2Player.getScore())
                 player3score += player3Player.getScore();
         }
 
-        else if(player1Player.getScore() == player2Player.getScore()){
+        if(player1Player.getScore() == player2Player.getScore()){
             player1score += player1Player.getScore();
             player2score += player2Player.getScore();
         }
 
-        else if(player2Player.getScore() == player3Player.getScore()){
+        if(player2Player.getScore() == player3Player.getScore()){
             player2score += player2Player.getScore();
             player3score += player3Player.getScore();
         }
 
-        else if(player1Player.getScore() == player3Player.getScore()){
+        if(player1Player.getScore() == player3Player.getScore()){
             player1score += player2Player.getScore();
             player3score += player3Player.getScore();
         }
