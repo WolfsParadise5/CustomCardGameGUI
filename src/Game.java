@@ -536,7 +536,10 @@ class Game {
 
         if (player1Player.getScore() > player2Player.getScore())
             player1Player.winDeterminor = true;
-
+        else if (player1Player.getScore() == player2Player.getScore()){
+            player1Player.winDeterminor = false;
+            player2Player.winDeterminor = false;
+        }
         else
             player2Player.winDeterminor = true;
 
@@ -639,7 +642,6 @@ class Game {
         System.out.println(player2.playerName + " : " + player2Player.playerCardstoString());
         player1Player.winDeterminor = false;
         player2Player.winDeterminor = false;
-
         System.out.println();
         System.out.println("*** ROUND 4 ***");
         System.out.println("Cards on Hand: ");
