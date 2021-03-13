@@ -8,7 +8,7 @@ import java.util.Queue;
 
 class Game {
     
-    public static void mainCommandPrompt(String player1, String player2, String player3) {
+    public static ArrayList<Object> mainCommandPrompt(String player1, String player2, String player3) {
         System.out.println("*******************");
         System.out.println("* 3-Player Phase  *");
         System.out.println("*******************");
@@ -366,34 +366,16 @@ class Game {
         player2Player.winDeterminor = false;
         player3Player.winDeterminor = false;
 
-        if (player1score > player3score){
-            if(player2score > player3score){
-                phase2(player1Player, player2Player);
-            }
-        }
+        int[] playerScores = {player1score,player2score,player3score};
+        Play[] currentPlayers = {player1Player,player2Player,player3Player};
+        ArrayList<Object> returnobject = new ArrayList<>();
+        returnobject.add(playerScores);
+        returnobject.add(currentPlayers);
 
-        if (player2score > player1score){
-            if(player3score > player1score)
-                phase2(player2Player, player3Player);
-        }
-
-        if (player1score > player2score){
-            if(player3score > player2score)
-                phase2(player1Player, player3Player);
-        }
-
-        if (player1score > player2score){
-            if(player2score > player3score)
-                phase2(player1Player, player2Player);
-        }
-
-        if (player1score > player2score){
-            if(player2score > player3score)
-                phase2(player1Player, player2Player);
-        }
+        return returnobject;
     }
     
-    public static void phase2(Play player1, Play player2) {
+    public static Play[] phase2(Play player1, Play player2) {
         System.out.println("***** " + player1.playerName + " and " + player2.playerName + " proceed to 2-Player phase *****");
         Deck round2 = new Deck();
         System.out.println("*******************");
@@ -671,10 +653,13 @@ class Game {
         player1Player.winDeterminor = false;
         player2Player.winDeterminor = false;
 
+        Play[] getPeople = {player1Player,player2Player};
+
         if(player1score2 > player2score2)
             System.out.println("***** " + player1.playerName + " is the WINNER! *****");
         else
             System.out.println("***** " + player2.playerName + " is the WINNER! *****");
+        return getPeople;
     }
 
     public static int fixScore(Card[] cards) {
