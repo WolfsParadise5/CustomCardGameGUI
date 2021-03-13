@@ -1,14 +1,15 @@
 ## Getting Started
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+- Group3.txt talks about the contribution marks among the two members of the team.
+- run.txt indicates the requirement needed to compile the program.
+ - src/App.java is the main file of the program.
 
 ## Folder Structure
 
 The workspace contains two folders by default, where:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- `src`: the folder to maintain sources.
+- `lib`: the folder to maintain dependencies.
 
 ## Dependency Management
-
-The `JAVA DEPENDENCIES` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-pack/blob/master/release-notes/v0.9.0.md#work-with-jar-files-directly).
+- The following depends on the JavaFX module to run.
