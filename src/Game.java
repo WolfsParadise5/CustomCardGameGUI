@@ -376,7 +376,6 @@ class Game {
     }
     
     public static Play[] phase2(Play player1, Play player2) {
-        System.out.println("***** " + player1.playerName + " and " + player2.playerName + " proceed to 2-Player phase *****");
         Deck round2 = new Deck();
         System.out.println("*******************");
         System.out.println("* 2-Player Phase  *");
@@ -653,6 +652,11 @@ class Game {
         player1Player.winDeterminor = false;
         player2Player.winDeterminor = false;
 
+        //Update Scores
+        player1Player.resetScore();
+        player2Player.resetScore();
+        player1Player.addScore(player1score2);
+        player2Player.addScore(player2score2);
         Play[] getPeople = {player1Player,player2Player};
 
         if(player1score2 > player2score2)

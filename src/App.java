@@ -9,10 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 
 class StoreNextPage {
 
@@ -117,26 +115,36 @@ class StoreNextPage {
 
         if (scoreint[0] > scoreint[2]){
             if(scoreint[1] > scoreint[2]){
+                System.out.println("***** " + player1Player.playerName + " and " + player2Player.playerName + " proceed to 2-Player phase *****");
                 twoPlayer = Game.phase2(player1Player, player2Player);
             }
             else if(scoreint[2] > scoreint[1]){
-                twoPlayer = Game.phase2(player2Player,player3Player);
+                System.out.println("***** " + player1Player.playerName + " and " + player3Player.playerName + " proceed to 2-Player phase *****");
+                twoPlayer = Game.phase2(player1Player,player3Player);
             }
         }
 
         else if (scoreint[1] > scoreint[0]){
-            if(scoreint[2] > scoreint[0])
+            if(scoreint[2] > scoreint[0]){
+                System.out.println("***** " + player2Player.playerName + " and " + player3Player.playerName + " proceed to 2-Player phase *****");
                 twoPlayer = Game.phase2(player2Player, player3Player);
+            }
+            else if(scoreint[2] < scoreint[0]){
+                System.out.println("***** " + player2Player.playerName + " and " + player3Player.playerName + " proceed to 2-Player phase *****");
+                twoPlayer = Game.phase2(player2Player, player3Player);
+            }
         }
 
         else if (scoreint[0] > scoreint[1]){
-            if(scoreint[2] > scoreint[1])
+            if(scoreint[2] > scoreint[1]){
+                System.out.println("***** " + player1Player.playerName + " and " + player3Player.playerName + " proceed to 2-Player phase *****");
                 twoPlayer = Game.phase2(player1Player, player3Player);
-            else if(scoreint[1] > scoreint[2])
+            }
+            else if(scoreint[1] > scoreint[2]){
+                System.out.println("***** " + player1Player.playerName + " and " + player2Player.playerName + " proceed to 2-Player phase *****");
                 twoPlayer = Game.phase2(player1Player, player2Player);
+            }
         }
-
-
 
         //Round 2 Label
         String playerOneLabel = new String(twoPlayer[0].playerName +": " + twoPlayer[0].getScore());
@@ -149,8 +157,6 @@ class StoreNextPage {
 
 
 public class App extends Application {
-
-    
 
     Button continueButton;
     public static void main(String[] args) throws Exception {
