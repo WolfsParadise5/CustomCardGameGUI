@@ -62,17 +62,20 @@ class StoreNextPage {
         Play player3Player = players[2];
         nextRound = new Button("Proceed to Round 2");
 
+        Object[] roundOneWinnersObject = round2(player1Player, player2Player, player3Player, scoreint);
+        Play[] roundOneWinners = (Play[]) roundOneWinnersObject[0];
+        int[] roundOneScores = (int[]) roundOneWinnersObject[1];
+
         //Button action
         EventHandler<ActionEvent> onClick = new EventHandler<ActionEvent>() { 
             public void handle(ActionEvent e) 
             {  
                 //Platform.exit();
-                String[] toBeInserted = round2(player1Player, player2Player, player3Player, scoreint);
-                round2Player1.setText(toBeInserted[0]);
-                round2Player2.setText(toBeInserted[1]);
+                Play[] roundTwoWinners = Game.phase2(roundOneWinners[0], roundOneWinners[1], roundOneScores[0], roundOneScores[1]);
+                //Round 2 Label
+                round2Player1.setText(roundTwoWinners[0].playerName +": " + roundTwoWinners[0].getScore());
+                round2Player2.setText(roundTwoWinners[1].playerName +": " + roundTwoWinners[1].getScore());
                 setScore.getChildren().remove(nextRound);
-                
-
             } 
         };
 
@@ -108,49 +111,61 @@ class StoreNextPage {
 
     }
 
-    public String[] round2(Play player1Player,Play player2Player,Play player3Player, int[] scoreint) {
+    public Object[] round2(Play player1Player,Play player2Player,Play player3Player, int[] scoreint) {
 
         //Determine the two players proceeding to the next stage
-        Play[] twoPlayer = {};
+        Play[] twoPlayer = new Play[2];
+        int[] roundOne = {};
 
         if (scoreint[0] > scoreint[2]){
             if(scoreint[1] > scoreint[2]){
                 System.out.println("***** " + player1Player.playerName + " and " + player2Player.playerName + " proceed to 2-Player phase *****");
-                twoPlayer = Game.phase2(player1Player, player2Player);
+                twoPlayer[0] = player1Player;
+                twoPlayer[1] = player2Player;
+                roundOne = new int[]{scoreint[0],scoreint[1]};
             }
             else if(scoreint[2] > scoreint[1]){
                 System.out.println("***** " + player1Player.playerName + " and " + player3Player.playerName + " proceed to 2-Player phase *****");
-                twoPlayer = Game.phase2(player1Player,player3Player);
+                twoPlayer[0] = player1Player;
+                twoPlayer[1] = player3Player;
+                roundOne = new int[]{scoreint[0],scoreint[2]};
             }
         }
 
         else if (scoreint[1] > scoreint[0]){
             if(scoreint[2] > scoreint[0]){
                 System.out.println("***** " + player2Player.playerName + " and " + player3Player.playerName + " proceed to 2-Player phase *****");
-                twoPlayer = Game.phase2(player2Player, player3Player);
+                twoPlayer[0] = player2Player;
+                twoPlayer[1] = player3Player;
+                roundOne = new int[]{scoreint[1],scoreint[2]};
             }
             else if(scoreint[2] < scoreint[0]){
-                System.out.println("***** " + player2Player.playerName + " and " + player3Player.playerName + " proceed to 2-Player phase *****");
-                twoPlayer = Game.phase2(player2Player, player3Player);
+                System.out.println("***** " + player1Player.playerName + " and " + player2Player.playerName + " proceed to 2-Player phase *****");
+                twoPlayer[0] = player1Player;
+                twoPlayer[1] = player2Player;
+                roundOne = new int[]{scoreint[0],scoreint[1]};
             }
         }
 
         else if (scoreint[0] > scoreint[1]){
             if(scoreint[2] > scoreint[1]){
                 System.out.println("***** " + player1Player.playerName + " and " + player3Player.playerName + " proceed to 2-Player phase *****");
-                twoPlayer = Game.phase2(player1Player, player3Player);
+                twoPlayer[0] = player1Player;
+                twoPlayer[1] = player3Player;
+                roundOne = new int[]{scoreint[0],scoreint[2]};
             }
             else if(scoreint[1] > scoreint[2]){
                 System.out.println("***** " + player1Player.playerName + " and " + player2Player.playerName + " proceed to 2-Player phase *****");
-                twoPlayer = Game.phase2(player1Player, player2Player);
+                twoPlayer[0] = player1Player;
+                twoPlayer[1] = player2Player;
+                roundOne = new int[]{scoreint[0],scoreint[1]};
+                
             }
         }
 
-        //Round 2 Label
-        String playerOneLabel = new String(twoPlayer[0].playerName +": " + twoPlayer[0].getScore());
-        String playerTwoLabel = new String(twoPlayer[1].playerName +": " + twoPlayer[1].getScore());
         
-        return new String[]{playerOneLabel,playerTwoLabel};
+        
+        return new Object[]{twoPlayer,roundOne};
 
     }
 }

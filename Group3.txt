@@ -1,0 +1,8 @@
+1191100776 Nagaindran a/l Kanaseelanayaam
+1191100350 Fong Zheng Wei
+
+TASK DISTRIBUTION
+1. Sorting and determining the highest point - Nagaindran 100%
+2. Dealing of cards and identify the winner in each round - Nagaindran 100%
+3. Sum of score and the overall flow of the game - Fong Zheng Wei 100%
+4. JavaFX - Nagaindran 100%

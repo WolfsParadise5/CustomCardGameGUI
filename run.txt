@@ -1,0 +1,34 @@
+Following program uses Javafx-sdk Version 11.0.2.
+
+USING VSCODE:
+
+	NOTE: Following is only tested using Windows 10
+	1. Go to .vscode and open launch.json
+
+	2. Go to line 38 , whereby located "vmArgs", where you will need to change the directory in the command to your own JavaFX Library Directory
+	(Ex. : C:/JavaFX/javafx-sdk-11.0.2/lib)
+	Format for reference for line 38: "vmArgs": "--module-path (Location of directory) --add-modules javafx.controls,javafx.fxml",
+
+	3. Go to settings.json of the same folder
+
+	4. From line 4 to line 11, change the directory according to your directly while maintaining the name of the jarfiles (IMPORTANT)
+
+	Example ( line 4 ): If directory is (C:/javafx-sdk-11.0.2/lib),
+	Then change "c:\\JavaFX\\javafx-sdk-11.0.2\\lib\\javafx.base.jar", to "C:\\javafx-sdk-11.0.2\\lib\\javafx.base.jar",
+
+	5. Ensure JavaFX Support and FXML Viewer module is installed into VSCode.
+
+	6. To run the program , run via App.java, located in the src folder of the project.
+
+USING .BAT:
+
+	1. Open run.bat using Notepad / Notepad++
+	2. Edit line 1 and line 2 to your respective JavaFX Directory 
+
+	Example ( line 1 ): If directory is (C:/javafx-sdk-11.0.2/lib),
+	Then change "javac --module-path C:/JavaFX/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.fxml App.java"
+	To "javac --module-path C:/javafx-sdk-11.0.2/lib --add-modules javafx.controls,javafx.fxml App.java"
+
+	NOTE: Only modify the direction portion of the command.
+
+

@@ -420,7 +420,7 @@ class Game {
         return returnobject;
     }
     
-    public static Play[] phase2(Play player1, Play player2) {
+    public static Play[] phase2(Play player1, Play player2,int round1ScorePlayer1,int round1ScorePlayer2) {
         Deck round2 = new Deck();
         System.out.println("*******************");
         System.out.println("* 2-Player Phase  *");
@@ -505,13 +505,19 @@ class Game {
 
         System.out.println("");
         System.out.println("Score: ");
-        if(player1Player.getScore() > player2Player.getScore())
-            player1score2 += player1Player.getScore();
-        else if(player2Player.getScore() > player1Player.getScore())
-            player2score2 += player2Player.getScore();
+        if(player1Player.getScore() > player2Player.getScore()) {
+            player1score2 += player1Player.getScore() + round1ScorePlayer1;
+            player2score2 += round1ScorePlayer2;
+        }
+
+        else if(player2Player.getScore() > player1Player.getScore()) {
+            player1score2 += round1ScorePlayer1;
+            player2score2 += player2Player.getScore() + round1ScorePlayer2;
+        }
+        
         else if(player2Player.getScore() == player1Player.getScore()) {   
-            player1score2 += player1Player.getScore();
-            player2score2 += player2Player.getScore();
+            player1score2 += player1Player.getScore() + round1ScorePlayer1;
+            player2score2 += player2Player.getScore() + round1ScorePlayer2;
         }
 
         System.out.println(player1.playerName + " = " + player1score2);
